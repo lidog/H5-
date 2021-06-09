@@ -1,0 +1,41 @@
+@mixin background-url-dpr($url) {
+  background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_25/'+ $url +',jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  [data-dpr="1"] & { 
+    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_25/'+ $url +',jpg');
+  } 
+  [data-dpr="2"] & {
+    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_75/'+ $url +',jpg');   
+  } 
+  [data-dpr="3"] & {
+    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_100/'+ $url +',jpg');
+  } 
+  [data-dpr="4"] & {
+    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_100/'+ $url +',jpg');
+  } 
+}
+@mixin font-size-dpr($fontSize) {
+  font-size: $fontSize;
+  [data-dpr="1"] & { 
+    font-size: $fontSize;
+  } 
+  [data-dpr="2"] & {
+      font-size: $fontSize * 2;
+  } 
+    //for mx3 
+  [data-dpr="2.5"] & {
+      font-size: $fontSize * 2;
+  } 
+  //for 小米note,for 小米mix
+  [data-dpr="2.75"] & {
+      font-size: $fontSize * 2.2;
+  } 
+  [data-dpr="3"] & {
+      font-size: $fontSize * 2.2;
+  } 
+  //for 三星note4 ,三星s6 
+  [data-dpr="4"] & {
+      font-size: $fontSize* 2;
+  } 
+}

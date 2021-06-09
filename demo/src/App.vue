@@ -1,31 +1,34 @@
 <template>
   <div class="page">
-    <Normal></Normal>
+    <!-- <Normal></Normal> -->
     <!-- <Rem></Rem> -->
-    <!-- <Flexiable></Flexiable> -->
-    <!-- <FlexiablePro></FlexiablePro> -->
+    <!-- <Flexible></Flexible> -->
+    <!-- <FlexiblePro></FlexiblePro> -->
     <!-- <Scale></Scale> -->
     <!-- <Vw></Vw> -->
+    <FlexibleSDK></FlexibleSDK>
  </div>
 </template>
 
 <script>
 import Normal from "./components/Normal.vue"
 import Rem from "./components/Rem.vue"
-import Flexiable from "./components/Flexiable.vue"
-import FlexiablePro from "./components/FlexiablePro.vue"
+import Flexible from "./components/Flexible.vue"
+import FlexiblePro from "./components/FlexiblePro.vue"
 import Scale from "./components/Scale.vue"
 import Vw from "./components/Vw.vue"
+import FlexibleSDK from "./components/FlexibleSDK.vue"
 
 export default {
   name: 'App',
   components: {
     Normal,
     Rem,
-    Flexiable,
-    FlexiablePro,
+    Flexible,
+    FlexiblePro,
     Scale,
     Vw,
+    FlexibleSDK,
   }
 }
 </script>
