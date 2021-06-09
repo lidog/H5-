@@ -42,7 +42,7 @@ export default {
     },
     setFlexiable(){
       let scritp = document.createElement('script')
-      scritp.setAttribute('src', '/src/flexiable.js')
+      scritp.setAttribute('src', '/src/flexible.js')
       document.documentElement.appendChild(scritp)
     }
   }
