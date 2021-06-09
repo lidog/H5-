@@ -1,12 +1,12 @@
 <template>
   <div class="page">
-    <!-- <Normal></Normal> -->
+    <Normal></Normal>
     <!-- <Rem></Rem> -->
     <!-- <Flexible></Flexible> -->
     <!-- <FlexiblePro></FlexiblePro> -->
     <!-- <Scale></Scale> -->
     <!-- <Vw></Vw> -->
-    <FlexibleSDK></FlexibleSDK>
+    <!-- <FlexibleSDK></FlexibleSDK> -->
  </div>
 </template>
 
