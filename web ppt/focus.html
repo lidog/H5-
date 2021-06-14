@@ -1,0 +1,613 @@
+<!doctype html>
+
+<!--
+  A presentation done entirely in Markdown, as found in extras/markdown/.
+  
+  By: @henrikingo
+-->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Markdown in impress.js | by Henrik Ingo @henrikingo</title>
+    
+    <meta name="description" content="Authoring impress.js presentations in Markdown" />
+    <meta name="author" content="Henrik Ingo" />
+    <link rel="stylesheet" href="./css/github.css">
+
+    <!-- Common styles for example presentations -->  
+    <link href="./css/impress-common.css" rel="stylesheet" />  
+    <!--
+        Styles specific for this example presentation. 
+    -->
+    <link href="./css/markdown-slides.css" rel="stylesheet" />
+    <link href="./css/devopsy.css" rel="stylesheet" />
+    <link href="./css/effects.css" rel="stylesheet" />
+    
+</head>
+
+<body class="impress-not-supported" style="background-color: #171717;">
+
+<div id="impress" data-transition-duration="1000">
+
+<div id="浅谈移动端适配方案" class="step slide markdown start">
+# 浅谈移动端适配方案 
+### — 黎镇华
+</div>
+<div id="前言" class="step slide markdown" data-rel-x="0" data-rel-y="900">
+# 前言
+-----
+## 前端工程师
+![](images/qianduan.gif)
+-----
+## 充实而快乐
+![](images/gaoxiao.gif)
+-----
+## 时代的车轮
+![](images/cicun.png)
+-----
+## 一场战争
+![](images/zhanzhen.jpg)
+-----
+## 如何在各种设备中“舒服”地展示HTML5页面
+![](images/shipei.png)
+-----
+# 几年过去了
+### ...
+-----
+# 今天的前端工程师已经基本解决了所有适配问题
+## 并且总结出了很多解决方案
+- 手工适配
+- 伸缩适配
+- AI适配
+- 黑白配
+- 我不配
+### ...
+-----
+## 但是，新的问题也随之出现
+![](images/sikao.jpg)
+-----
+## 方案太多，错综复杂，概念模糊，理解不了
+### copy copy copy...
+![](images/xiong.jpg)
+-----
+# 听得懂，拿得走，用得上
+</div>
+
+<div id="标准" class="step slide markdown title-slide">
+# 一套优秀的 H5适配方案 应该是怎么样呢？
+-----
+# 个人认为要满足三点标准：
+1. 自动适配屏幕
+2. 操作简单，业务无入侵
+3. 兼容高清
+</div>
+
+
+<div id="一些必要前置的适配知识点" class="step slide markdown" data-rotate="-85" data-x="2000" data-y="1000" data-z="1000" data-scale="4">
+# 前置知识点
+1. rem
+2. 视窗 viewport
+3. 视口单位	vw & vh
+4. 分辨率与逻辑像素
+5. dpr （设备像素比）
+6. viewport meta
+</div>
+<div class="step slide markdown" data-rotate="-85" data-x="2000" data-y="6000" data-z="1000" data-scale="4">
+# rem
+一个相对尺寸单位。 html 元素的font-size = 1 rem 大小；
+<br>
+# 视窗 viewport
+viewport的大小就是浏览器窗口的大小。
+### clientWidth = document.documentElement.clientWidth
+</div>
+<div class="step slide markdown" data-rotate="-85" data-x="2000" data-y="10000" data-z="1000" data-scale="4">
+# 视口单位	vw & vh
+### 1vw 等于屏幕宽度的 1%
+### 1vh 等于屏幕高度的 1%
+</div>
+<div class="step slide markdown" data-rotate="0" data-x="2000" data-y="18000" data-z="1000" data-scale="4">
+# 分辨率（像素）
+### 显示分辨率就是屏幕上显示的像素个数
+# 物理像素 （物理分辨率）
+### 就是真实排列在屏幕上的，实际的 LED 数；
+</div>
+<div class="step slide markdown vw" data-rotate="0" data-x="2000" data-y="22000" data-z="1000" data-scale="2">
+![](images/iphone12.png)
+</div>
+<div class="step slide markdown" data-rotate="0" data-x="2000" data-y="25000" data-z="1000" data-scale="4">
+# 分辨率与逻辑像素
+### 分辨率： LED 灯数
+### 逻辑像素： css px单位
+![](images/led.png)
+</div>
+<div class="step slide markdown" data-rotate="85" data-x="2000" data-y="30000" data-z="1000" data-scale="5">
+# dpr （设备像素比）
+### devicePixelRatio，简称 dpr
+物理像素分辨率 与 CSS 像素分辨率的 比率
+### 告诉浏览器应该使用多少个 LED 来显示 1px
+<br>
+# dpr ＝ 物理像素 / css像素
+</div>
+<div class="step slide markdown" data-rotate="85" data-x="2000" data-y="38000" data-z="1000" data-scale="4">
+# viewport meta 标签
+### 可以告诉浏览器关于渲染的一些重要的信息： 
+</div>
+<div class="step slide markdown vw" data-rotate="85" data-x="2000" data-y="42000" data-z="1000" data-scale="4">
+# 其中比较重要的几个
+![](images/meta.png)
+</div>
+<div class="step slide markdown vw" data-rotate="85" data-x="-1000" data-y="42000" data-z="1000" data-scale="3">
+# 总共 6 个
+1. rem
+2. 视窗 viewport
+3. 视口单位	vw & vh
+4. 分辨率与逻辑像素
+5. dpr （设备像素比）
+6. viewport meta
+</div>
+
+<div id="方案的分类" class="step slide markdown" data-rotate="-85" data-x="4000" data-y="2000">
+# 方案的分类
+- 媒体查询  @media
+- 动态设置 rem
+- 动态设置 initial-scale
+- vw & vh
+</div>
+<div id="媒体查询" class="step slide markdown" data-rotate="-85" data-x="5000" data-y="2000">
+# 媒体查询 @meida
+### 最原始的适配方案，就像web一样自然。
+</div>
+<div id="二维码"  class="step slide markdown code" data-rotate="-85" data-x="6000" data-y="2000">
+## demo
+![](images/er.png) 
+</div>
+<div class="step slide markdown code" data-rotate="-85" data-x="7000" data-y="2000">
+# 特点
+- 响应式布局
+- 修改繁琐
+</div>
+
+<div id="动态设置rem方案" class="step slide markdown" data-rotate="0" data-x="4000" data-y="5000">
+# 动态设置 rem 方案
+### 监听视窗，动态设置rem, 通过 rem 让UI改变大小 以适配；
+#### demo
+</div>
+<div class="step slide markdown code" data-rotate="0" data-x="6000" data-y="5000">
+# 设置meta
+      meta 
+      name=viewport 
+      content="
+        width=device-width,
+        initial-scale=1,
+        maximum-scale=1,
+        user-scalable=no,
+        viewport-fit=cover
+      "
+</div>
+<div class="step slide markdown code" data-rotate="0" data-x="8000" data-y="5000">
+# 设置监听函数
+      resize(doc, win) {
+        var docE1 = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docE1.clientWidth;
+          if (!clientWidth) return;
+          docE1.style.fontSize = (clientWidth / (375*2)) * 100 + 'px';    
+        };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+      },
+</div>
+<div class="step slide markdown code" data-rotate="0" data-x="10000" data-y="5000">
+# body占满屏幕
+        body {
+          width: 7.5rem;
+        }
+</div>
+<div class="step slide markdown big-code" data-rotate="45" data-x="11000" data-y="5000" data-scale="5">
+        docE1.style.fontSize = 
+          (clientWidth / (375*2)) * 100 + 'px'
+## 是怎么推导出来的？
+</div>
+<div class="step slide markdown miao code" data-rotate="45" data-x="12000" data-y="5000">
+<p>假如现在我们有一个750px 宽的设计稿；</p>
+<br>
+<p>我们约定 1rem 表示 100px；</p>
+<br>
+<p>容易得到下面的代码：</p>
+<br>
+        body{
+          width： 7.5rem； // 实际表现为 750px，1:1 还原设计稿
+        }
+</div>
+<div class="step slide markdown miao code" data-rotate="45" data-x="13000" data-y="5000">
+## 假如改变rem大小，现在 1rem = 80px
+## 那么你就会得到什么？
+</div>
+<div class="step slide markdown miao code" data-rotate="45" data-x="14000" data-y="5000">
+# 你会得到一份缩小20%的实现 
+        1rem = 80px
+        body{
+          width： 7.5rem； // 实际表现为 750* 0.8 = 600px，一个缩小了20%的body
+        }
+</div>
+<div class="step slide markdown code" data-rotate="45" data-x="16000" data-y="5000">
+iphone6 的 clientWidth 是375，我们希望这份750px的UI实现适配iphone6
+<br>
+<p>那么1rem 应该设置为多少px 呢？</p>
+</div>
+<div class="step slide markdown miao big-code" data-rotate="90" data-x="17000" data-y="5000">
+### 其实我们就是在求一个比例
+          375 / 750 = fontSize / 100
+### 转换:
+          fontSize = (375/750) * 100
+</div>
+<div class="step slide markdown miao big-code" data-rotate="90" data-x="18000" data-y="5000">
+### 因为375 是iphone6 的viewport 宽度
+        fontSize = (375/750) * 100
+### 进一步抽象可以得到
+        fontSize = ( clientWidth / 750) * 100
+</div>
+<div class="step slide markdown miao big-code" data-rotate="90" data-x="19500" data-y="5000">
+### 这个方案满足了我们的两个条件：
+- 自动伸缩适配
+- 实施简单
+### 但是还没有满足兼容高清屏幕
+那么不满足高清屏幕，会带来什么问题吗？
+</div>
+<div class="step slide markdown miao big-code" data-rotate="90" data-x="20000" data-y="5000">
+- 1px border 问题
+- 图片模糊
+- 字体模糊
+</div>
+<div class="step slide markdown miao" data-rotate="90" data-x="20000" data-y="6100">
+# 什么是 1px border 问题？
+</div> 
+<div class="step slide markdown miao" data-rotate="90" data-x="20000" data-y="8300">
+### 1cm×1cm 屏幕面积
+![](images/mj.png)
+</div>
+<div class="step slide markdown miao" data-rotate="90" data-x="20000" data-y="9400">
+### 举个例子：
+假如你现在有一台iphone6，原厂是 retina 屏幕，2倍屏；有一天不小心你摔坏了屏幕，去换了一个普通屏(1:1)。
+<br>
+其实显示网页时，js 获取到的 document.documentElement.clientWidth 是一样的，都是375px；
+<br>
+### css 写，border：1px，
+### 实际上 retina 屏会用 2行LED 去渲染
+</div>
+<div class="step slide markdown miao" data-rotate="90" data-x="20000" data-y="10400">
+## 我们希望即使是倍屏下，我们还是用物理1px 去显示 css 1px；
+### 那么应该怎么办呢？
+</div>
+<div class="step slide markdown code" data-rotate="90" data-x="19000" data-y="10400">
+# 可以用以下几种方法解决：
+- 0.5px
+
+        border: 0.5px solid red;   //不是每个浏览器都能识别 0.5px
+        <br>
+- border-image 
+
+        .pink-div{
+          width: 100px;
+          height: 100px;
+          margin-top: 20px;
+          border-bottom: 1px solid transparent;
+          border-image: linear-gradient(to bottom, transparent 50%, red 50%) 0 0 100%/1px 0;
+        }
+</div>
+<div class="step slide markdown code" data-rotate="90" data-x="18000" data-y="10400">
+- box-shadow 
+
+        .box-shadow-1px{
+          box-shadow: 0px 0.5px 0px 0px #ee2c2c;
+        }
+        <br>
+- scaleY(0.5)
+
+        .border-bt-1px{
+          position: relative;
+          :before{
+            content: '';
+            position: absolute;
+            left:0;           
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: #ee2c2c;
+            transform: scaleY(0.5);
+          }
+        }
+</div>
+<div class="step slide markdown code" data-rotate="135" data-x="17000" data-y="10000">
+# 图片，字体模糊的问题其实也是一样的原因造成
+</div>
+<div class="step slide markdown vw50 mt150" data-rotate="135" data-x="17000" data-y="11200">
+![](images/2x.png) 
+### 图片适配怎么做呢
+</div>
+
+<div id="flexible" class="step slide markdown vw50" data-rotate="150" data-x="17000" data-y="12000">
+### 第三种方案 
+# 终于迎来今天的主角 
+# flexible.js 方案
+### 淘宝背书 双十一验证
+</div>
+<div class="step slide markdown vw50" data-rotate="160" data-x="17000" data-y="12500">
+# 实现思路
+- 基于rem 去实现UI
+- 通过改变 initial-scale 缩放页面来适配
+### demo
+</div>
+<div class="step slide markdown vw50" data-rotate="170" data-x="17000" data-y="13000">
+# 优势
+- 使用更加简单
+- 天然解决 1px border 问题
+- 更大的屏幕可以看到更多的内容
+- 大厂支持
+</div>
+<div class="step slide markdown vw50" data-rotate="180" data-x="17000" data-y="13500">
+# 使用姿势
+- 在index.html 中插入 flexible.js;
+- 设计稿75px，在css 中写 1rem；
+</div>
+<div class="step slide markdown vw50" data-rotate="190" data-x="17000" data-y="14000">
+### 使用姿势
+## 安装 vscode 插件 px2rem
+</div>
+<div class="step slide markdown vw80" data-rotate="200" data-x="17000" data-y="15000" data-scale="0.3">
+![](images/px2rem.png)
+</div>
+<div class="step slide markdown vw80" data-rotate="200" data-x="17500" data-y="15000">
+![](images/px2rem.gif)
+</div>
+<div class="step slide markdown code" data-rotate="210" data-x="17000" data-y="15500">
+## webpack 插件 postcss-pxtorem，帮你自动转换代码 
+<br>
+        /* 安装 */
+        npm install postcss-pxtorem -D
+        /* 在webpack 中配置 */
+        "postcss-pxtorem": {
+          "rootValue": 75,
+          "propList": ["*"],
+          // 注意：如果有使用第三方UI如VUX，则需要配置下忽略选择器不转换。
+          // 规则是class中包含的字符串，如vux中所有的class前缀都是weui-。也可以是正则。
+          "selectorBlackList": ["weui-"]
+        }
+</div>
+<div class="step slide markdown code" data-rotate="210" data-x="17000" data-y="16100">
+- 那么你直接可以按着设计稿写代码。插件会自动帮你转为rem
+<br>
+          body {
+            width: 750px;
+          }
+          
+          //编译后
+          body {
+            widht: 23.4375rem;
+          }
+<br>
+</div>
+<div class="step slide markdown code" data-rotate="210" data-x="17000" data-y="17200">
+# flexible 提供了高清问题解决方案
+  - 解决高清图片
+  - 高清字体问题
+</div>
+<div class="step slide markdown code" data-rotate="220" data-x="17000" data-y="18000">
+# 解决高清图片问题
+### flexible 给html加上data-dpr属性
+![](images/dpr.png)
+</div>
+<div class="step slide markdown code" data-rotate="220" data-x="17000" data-y="19000">
+### 只需要配合sass的宏函数，就可以自动适配高清图片
+          @mixin background-url-dpr($picName) {
+            background-image: url('xxx/quality,q_50/'+ $picName +',jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            [data-dpr="1"] & { 
+              background-image: url('xxx/quality,q_50/'+ $picName +',jpg');
+            } 
+            [data-dpr="2"] & {
+              background-image: url('xxx/quality,q_75/'+ $picName +',jpg');   
+            } 
+            [data-dpr="3"] & {
+              background-image: url('xxx/quality,q_100/'+ $picName +',jpg');
+            } 
+          }
+
+          .big-img {
+            width: 5.333333rem /* 400/75 */;
+            height: 4.8rem /* 360/75 */;
+            @include background-url-dpr('$picName')
+          }
+</div>
+<div class="step slide markdown code" data-rotate="220" data-x="17000" data-y="19900">
+- 字体过粗其实也是一样的修复方案  
+<dr>
+          //定义                                     //使用
+          @mixin font-size-dpr($fontSize) {         .dpr-font {
+            font-size: $fontSize;                        @include font-size-dpr(16px) 
+            [data-dpr="1"] & {                      }
+              font-size: $fontSize;
+            } 
+            [data-dpr="2"] & {
+                font-size: $fontSize * 2;
+            } 
+            [data-dpr="2.5"] & {
+                font-size: $fontSize * 2;
+            } 
+            [data-dpr="2.75"] & {
+                font-size: $fontSize * 2.2;
+            } 
+            [data-dpr="3"] & {
+                font-size: $fontSize * 2.2;
+            } 
+          }
+</div>
+<div class="step slide markdown code" data-rotate="230" data-x="17000" data-y="21000">
+# flexible 方案
+- 自动伸缩适应
+- 实施简单
+- 兼容高清
+- 插件辅助
+- 大厂背书
+- 经过实战
+</div>
+<div class="step slide markdown code" data-rotate="230" data-x="17000" data-y="21800">
+# One more thing !
+### flexible 还为你考虑到了未来!
+</div>
+<div class="step slide markdown code" data-rotate="235" data-x="17000" data-y="22800">
+# 业界未来的方案 —— vw 方案
+### demo
+</div>
+<div class="step slide markdown code" data-rotate="235" data-x="17000" data-y="23600">
+## vw 天然把屏幕分为100份
+## 容易得到 10vw = 1rem
+</div>
+<div class="step slide markdown code" data-rotate="235" data-x="17000" data-y="24400">
+          表示设计稿 75px 
+
+          /*原来*/
+          width: 1rem; 
+
+          /* 现在 */
+          width: 10vw
+</div>
+<div class="step slide markdown code" data-rotate="235" data-x="17000" data-y="25400">
+# 可是~
+## 你如果上vw，就需要自己解决这些问题
+- 1px border
+- 高清图片
+- 高清字体
+- 大屏适配
+- 自己换算px to vw
+- ...
+</div>
+<div class="step slide markdown code" data-rotate="245" data-x="18000" data-y="25400">
+# flexible 源码解读
+### flexible.js 的源码只有117行
+### 我抽出几段重点跟大家看一下
+</div>
+<div class="step slide markdown code" data-rotate="245" data-x="18800" data-y="25400">
+### 通过dpr，得到缩放比
+          var devicePixelRatio = win.devicePixelRatio;
+          if (isIPhone) {
+            // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
+            if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {                
+              dpr = 3;
+            } else if (devicePixelRatio >= 2 && (!dpr || dpr >= 2)){
+              dpr = 2;
+            } else {
+              dpr = 1;
+            }
+          } else {
+            // 其他设备下，仍旧使用1倍的方案
+            dpr = 1;
+          }
+          scale = 1 / dpr; //缩放比
+</div>
+<div class="step slide markdown code" data-rotate="245" data-x="19600" data-y="25400">
+### 去掉区分 iphone 和 安卓
+          if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {                
+            dpr = 3;
+          } else if (devicePixelRatio >= 2 && (!dpr || dpr >= 2)){
+            dpr = 2;
+          } else {
+            dpr = 1;
+          }
+          scale = 1 / dpr;
+</div>
+<div class="step slide markdown code" data-rotate="245" data-x="20400" data-y="25400">
+### 设置initial-scale
+          metaEl.setAttribute('content', 
+            'initial-scale=' + scale 
+            + ', maximum-scale=' + scale 
+            + ', minimum-scale=' + scale 
+            + ', user-scalable=no'
+          );
+### 设置最小字体，解决字体模糊的问题
+          doc.body.style.fontSize = 12 * dpr + 'px';
+</div>
+<div class="step slide markdown code" data-rotate="245" data-x="21200" data-y="26000">
+## 上伸缩原理对比demo
+- rem
+- initial-scale
+- transfrom
+- zoom
+</div>
+<div id="行业现状" class="step slide markdown code" data-rotate="255" data-x="21400" data-y="24000">
+# 行业现状
+## 没有最好，只有最适合
+ [文章](https://juejin.cn/post/6844903693020758029#heading-7)
+</div>
+<div class="step slide markdown more" data-rotate="255" data-x="23400" data-y="24000">
+## 方案对比
+![](images/duibi.png)
+</div>
+
+<div class="step slide markdown" data-rotate="270" data-x="23200" data-y="23000">
+# 一道适配题
+### 现在需要实现一个《618秒课》的H5页面
+### 设计稿尺寸是 width（414×2）的2倍图（原型iphone11)
+### 要求适配大部分移动设备（手机，ipad）。
+</div>
+<div class="step slide markdown" data-rotate="270" data-x="23200" data-y="21500" data-scale="0.5">
+# 需求分析
+- 这是一个购物网站
+- 第一屏很重要，需要在更大的设备上，看到更多的信息
+- 图片高清需求
+- 414×2 非常规宽度处理
+- 其它需求（字体，布局变化等）
+</div>
+<div class="step slide markdown" data-rotate="270" data-x="23200" data-y="21000" data-scale="0.5">
+# rem 方案
+## fontSize/100 = clientWidth / 828
+## fontSize = clientWidth / 828 × 100
+### 其实就是求 本机 与 设计稿 的比例
+</div>
+<div class="step slide markdown" data-rotate="270" data-x="23800" data-y="21000" data-scale="0.5">
+## meta标签
+## 1 border 高清 
+## 图片高清 
+## 字体高清
+</div>
+<div class="step slide markdown" data-rotate="270" data-x="23200" data-y="20000" data-scale="0.5">
+# flexible 方案
+### 导入flexable.js
+## 字体基数 =  414×2 / 10 = 82.8
+### 配合
+- 图片高清
+- 字体高清
+</div>
+<div id="一些个人经验" class="step slide markdown" data-rotate="300" data-x="23200" data-y="18500" data-scale="2">
+### 一些个人经验
+## 纵向的单位，还是采用px开发
+## 占满视窗 用 vw 代替 100%。
+## 多用flex布局
+</div>
+<div class="step slide markdown" data-rotate="330" data-x="21000" data-y="13500" data-scale="5">
+## 相对全面的方案
+- 基于 flexible 方案，满足安全，便捷开发。
+- 加入 sass 的字体，图片宏处理器 解决高清问题。
+- 再适当配合 px，vw，vh，flex，以及 px2rem 插件处理大多数兼容性问题。
+</div>
+
+<div id="overview" class="step markdown over" data-x="5000" data-y="4000" data-scale="10" style="pointer-events: none;" data-rotate="360">
+## 我的分享已结束
+# 谢谢大家
+</div>
+
+</div>
+
+<div id="impress-toolbar"></div>
+<!-- <div id="impress-help"></div> -->
+<script type="text/javascript" src="./js/highlight.pack.js"></script>
+<script type="text/javascript" src="./js/mermaid.min.js"></script>
+<script type="text/javascript" src="./js/markdown.js"></script>
+<script type="text/javascript" src="./js/impress.min.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
