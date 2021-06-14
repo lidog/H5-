@@ -83,6 +83,10 @@ export default {
 .font14 {
   font-size: 14px;
 }
+.info {
+  text-align: left;
+  margin-top: 5px;
+}
 .section {
   margin: 10px 0 20px 0;
   text-align: left;
@@ -95,10 +99,6 @@ export default {
     width: 25%;
     float: right;
   }
-}
-.info {
-  text-align: left;
-  margin-top: 5px;
 }
 @media screen and (max-width: 400px) {
   .section {
