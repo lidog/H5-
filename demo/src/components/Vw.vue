@@ -14,11 +14,11 @@
     <li></li>
   </ul>
   <div class="pic flex">
-    <div class="big-img bg"></div>
+    <div class="big-img"></div>
   </div>
   <div class="section flex">
     <p>从上世纪60年代袁隆平开始寻找雄性不育的水稻植株用于杂交水稻研究，到今天第三代杂交水稻技术迈向应用转换阶段，有望突破水稻亩产1200斤的天花板。半个世纪以来袁老都将自己投入进稻田，在泥泞当中寻找他想要能解决中国粮食问题的钥匙。</p>
-    <div class="small-img bg"></div>
+    <div class="small-img"></div>
   </div>
 </template>
 
@@ -51,23 +51,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@mixin background-url-dpr($url) {
-    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_25/'+ $url +',jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  [data-dpr="1"] & { 
-    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_25/'+ $url +',jpg');
-  } 
-  [data-dpr="2"] & {
-    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_75/'+ $url +',jpg');   
-  } 
-  [data-dpr="3"] & {
-    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_100/'+ $url +',jpg');
-  } 
-  [data-dpr="4"] & {
-    background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_100/'+ $url +',jpg');
-  } 
-}
+@import '../lib/dprMixin.scss';
 .border-bt-1px{
     position: relative;
     &:before{
@@ -101,18 +85,13 @@ export default {
   margin: 10px 0;
 }
 .ul li {
-  width: 20vw /* 150/75 */;
-  height: 20vw /* 150/75 */;
+  width: 20vw /* 150/7.5 */;
+  height: 20vw /* 150/7.5 */;
   background: red;
-  margin: .133333rem /* 10/75 */;
+  margin: 1.33333vw /* 20/7.5 */;
   float: left;
   color: #fff;
   line-height: 20vw;
-}
-.bg{
-  background-image: url('http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_25/format,jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
 }
 .big-img {
   width: 53.33333vw /* 400/75 */;

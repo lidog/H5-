@@ -1,5 +1,5 @@
 <template>
-  <h1>Normal (@media)</h1>
+  <h1>@media</h1>
   <h3 class="info">clientWidth: {{clientWidth}} px</h3>
   <h3 class="info">dpr: {{dpr}}</h3>
   <p class="info font16">可以根据屏幕不同改变布局，同时更宽的屏幕可以显示更多的内容 (16)</p>

@@ -2,7 +2,7 @@
   <h1>rem</h1>
   <h3 class="info">clientWidth: {{clientWidth}} px</h3>
   <h3 class="info">dpr: {{dpr}}</h3>
-  <p class="info font16">屏幕变化，元素自动伸缩,以适配不同屏幕（16）</p>
+  <p class="info font16 font16-rem">屏幕变化，元素自动伸缩,以适配不同屏幕（16）</p>
   <div class="border"></div>
   <ul class="ul clearfix">
     <li>75*75</li>
@@ -17,7 +17,7 @@
     <img src="http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_25/format,jpg">
   </div>
   <div class="section flex">
-    <p class="font14">从上世纪60年代袁隆平开始寻找雄性不育的水稻植株用于杂交水稻研究，到今天第三代杂交水稻技术迈向应用转换阶段，有望突破水稻亩产1200斤的天花板。半个世纪以来袁老都将自己投入进稻田，在泥泞当中寻找他想要能解决中国粮食问题的钥匙。（14）</p>
+    <p class="font14 font14-rem">从上世纪60年代袁隆平开始寻找雄性不育的水稻植株用于杂交水稻研究，到今天第三代杂交水稻技术迈向应用转换阶段，有望突破水稻亩产1200斤的天花板。半个世纪以来袁老都将自己投入进稻田，在泥泞当中寻找他想要能解决中国粮食问题的钥匙。（14）</p>
     <img src="http://image-demo.oss-cn-hangzhou.aliyuncs.com//smile.jpg?x-oss-process=image/resize,w_200,h_200/auto-orient,1/quality,q_25/format,jpg">
   </div>
 </template>
@@ -31,9 +31,9 @@ export default {
     }
   },
   mounted(){
+    this.setMeta()
     document.addEventListener('DOMContentLoaded', this.reset, false)
     window.addEventListener('resize', this.reset, false)
-    this.setMeta()
   },
   methods: {
     reset(){
@@ -75,7 +75,7 @@ export default {
   margin: 0.2rem 0;
 }
 .ul li {
-  width: 1.5rem;
+  width: 1.5rem; /* 设计稿上是150，150/100 */;
   height: 1.5rem;
   background: red;
   margin: 0.1rem;

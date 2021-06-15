@@ -68,7 +68,7 @@ export default {
   margin: .26666667rem 0;
 }
 .ul li {
-  width: 2rem /* 150/75 */;
+  width: 2rem /* 设计稿上是150，150/75 */;
   height: 2rem /* 150/75 */;
   background: red;
   margin: .133333rem /* 10/75 */;
