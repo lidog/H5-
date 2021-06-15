@@ -2,7 +2,7 @@
   <h1>rem</h1>
   <h3 class="info">clientWidth: {{clientWidth}} px</h3>
   <h3 class="info">dpr: {{dpr}}</h3>
-  <p class="info font16 font16-rem">屏幕变化，元素自动伸缩,以适配不同屏幕（16）</p>
+  <p class="info font16">屏幕变化，元素自动伸缩,以适配不同屏幕（16）</p>
   <div class="border"></div>
   <ul class="ul clearfix">
     <li>75*75</li>
@@ -91,14 +91,8 @@ export default {
 .font16 {
   font-size: 16px;
 }
-.font16-rem {
-  font-size: 0.16rem
-}
 .font14 {
   font-size: 14px;
-}
-.font14-rem {
-  font-size: 0.14rem
 }
 .section {
   margin: 0.2rem 0 0.4rem 0; 
