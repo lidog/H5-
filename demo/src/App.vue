@@ -7,6 +7,7 @@
     <!-- <Vw></Vw> -->
     <!-- <FlexibleSDK></FlexibleSDK> -->
     <!-- <Scale></Scale> -->
+    <ToVW></ToVW>
  </div>
 </template>
 
@@ -18,6 +19,7 @@ import FlexiblePro from "./components/FlexiblePro.vue"
 import Scale from "./components/Scale.vue"
 import Vw from "./components/Vw.vue"
 import FlexibleSDK from "./components/FlexibleSDK.vue"
+import ToVW from './components/ToVW.vue'
 
 export default {
   name: 'App',
@@ -29,6 +31,7 @@ export default {
     Scale,
     Vw,
     FlexibleSDK,
+    ToVW,
   }
 }
 </script>
